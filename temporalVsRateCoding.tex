@@ -1,0 +1,468 @@
+﻿% headers
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath}
+%%%% \usepackage{ifthen}
+%%%% \usepackage{mycite}
+\usepackage{paralist}
+\usepackage{graphicx}
+\input{neuro}
+\input{misc}
+\bibliographystyle{plain}
+\note{https://docs.google.com/document/d/1R4L6oY5VKKCMT9R_U9dHLrHbGB6LYa1-z3-FCi44VG4}
+\begin{document}
+\title{Reframing the neural coding debates}
+\author{
+William W Lytton$^1$\\
+Richard J Adams$^6$ \\
+Asohan Amarasingham$^2$ \\
+Thibault Lagache$^2$ \\
+Shivkumar Sabyasachi$^3$ \\
+Zang Yunliang $^5$ \\
+Yiyin Zhou $^2$\\
+Carmen Canavier$^{4}$\\
+\\
+$^1$ Dept. Physiology \& Pharmacology, SUNY Downstate, USA\\Dept. Neurology, Kings County Hospital Center, USA \\
+$^2$ Columbia University, USA \\
+$^3$ University of Rochester, USA \\
+$^4$ Lousisiana State University, USA \\
+$^5$ OIST, Japan \\ 
+$^6$ University of Cambridge, UK \\
+}
+\maketitle
+
+% top notes
+\note{ORIGINAL: https://docs.google.com/document/d/1R4L6oY5VKKCMT9R_U9dHLrHbGB6LYa1-z3-FCi44VG4/edit#heading=h.pqfsoil5pl02}
+
+\note{Time vs rate for neural coding: a false dichotomy
+Definitions of coding
+The use of information theory for identifying codes
+Focus on the individual neuron spike train
+What is the computational role of ensembles ?
+What determines the composition and size of an ensemble ?
+Beyond the spikes {by Thibault Lagache}
+Rate vs Temporal Codes: Not a Continuum
+A multiplicity of codes
+Is there significant noise in the nervous system?
+Additional text:
+    1. normative -- the experimenter determines what would be a useful code and looks for that signal
+    2. descriptive == correlative
+    3. Mechanistic == causal}
+
+% Scales of space and time in neural encoding: ensembles and phasing
+\subsection*{Reframing the problem: scales of space and time in neural encoding}
+
+With US efforts for Brain Research Advancing through Innovative Neurotechnologies, and similar efforts elsewhere, it is time to rethink
+neural coding in the context of ensembles and leave behind antique concepts based on single-neuron recording.
+In this review, we argue for complexity, multiplexing and multiplicity.  There is no single code that maintains cardiac or immune function. 
+Similarly, there is no single code for maintaining behavioral function.
+
+Ensemble storage and ensemble processing have been a feature of neuroscience thought since Hebb.\cite{Hebb1949-qt}
+Explicit demonstration of the power of ensemble processing dates back to the beginnings of the perceptron movement.\cite{Rosenblatt1958-ff}
+The Parallel Distributed Processing (PDP) program of the 1980s and back-propagation specifically identified {\em distributed} as a key attribute of information in
+ensembles.\cite{Hinton1986-vi,Rumelhart1986-ko} Recently, the power of Artificial Neural Networks (ANN)
+has been made manifest by extending the back-propagation algorithm to the very many layers of Deep Learning (DL). DL programs have performed activities previously believed to be
+exclusively the domain of human cognitive processing: Chess, Go, visual recognition, language translation, \etc.
+A finding from DL, as with PDP, is the uinterpretability of single units, units are part of ensembles.
+
+\note{The ambiguity of interpretation is in the context of single-scalar units whose state-variable is regarded as an analogue of rate. How much more complex must then a neuron be.}
+
+Although not a feature of current DL algorithms, behavioral measures demonstrate that temporal complexity accompanies spatial complexity in brain function.
+Phases of processing necessarily unfold in time as the organism engages with the world in action-perception loops.\cite{Little2013-wn}
+Environmental changes, expected or unexpected, produce rapid behavioral responses, that are then followed by further processing at both automatic and attentional levels.
+Additional evidence of temporal organization of brain processing comes from the observation of brain
+rhythms which produce limited periods of ensemble activatability with alternating periods of depolarization and hyperpolarization.
+In addition to brain oscilations, temporal sequencing is also described by other neuroscience descriptors:
+drivers vs modulators; synaptic facilitations, short and long term potentiation.
+
+\note{Whether acting as predator or prey, the brain cannot afford to wait. It must evaluate and react immediately to unexpected threats, whether a tiger leaping
+or a car pulling out of an alley. This initial processing subsequently modulated by further processing -- the leaping tiger in a zoo is distinguished from one in the wild.
+Behavioral from work of Thorpe on 1st wave processing, and recording by Singer, Fries and many others on oscillations in cortex}
+
+% Reframing biological theorizing
+\subsection*{Reframing biological theorizing}
+\note{optimality? -- nope, throw away information}
+\note{sensory isolation -- pure perception}
+
+%% desire to find solution
+Another limitation of current theorizing and modeling in neural coding has been an urge to cast the task as a unitary ``problem'' that can be solved,\cite{Marr1977-yh,Marr1982-st}
+rather than a set of processes to be approximated.
+
+%% agglutinative theories
+Biological theories and biological models are more similar to those of meteorology and geology than to those of physics and chemistry.\cite{Mulugeta2018-kc,Hunt2018-pq}
+Biological models are not mapping universal fundamentals, but
+are instead identifying dyamical patterns with a fidelity that depends on the quality of the underlying data. Generally these models are agglutinative -- one can add
+detail to models to make larger and larger models based on an original fundamental model, and can combine models. Unlike physics models, agglutanitive models are tweakable
+rather than falsifiable -- the weather report is mostly true for the next 2 or 3 days but will almost certainly be wrong 10 days out, by which time it will have been superceded
+by a new weather report.
+
+%% pred-prey
+A classic model that shows some of the features, and limitations, of a biological is the predator-prey model. Two first-order ordinary differential equations (ODEs)
+describe the change in numbers of \eg\ foxes and rabbits -- the foxes eat too many rabbits and then die off and eat too few rabbits, leading to too many rabbits, leading to
+more foxes. For a given pair of populations, the basic equations could be augmented in any number of ways, \eg\ by considering additional prey or additional predator species.
+More sophisticated versions could consider hunting strategies, vastly different for overwater vs underwater pairs. As these models get more
+and more complicated, the original 2 ODEs will likely be gone although the dynamics will still be there and could be fitted using a 2-D meta-model that would update the
+original parameters. Additoinal compatible models could add further spatial scales, local factors providing shelter for prey; and temporal scales, \eg\ the effects of the seasons.
+
+% Observables are all epiphenomena \note{What we talk about when we talk about codes}
+\subsection*{Observables are epiphenomenal: What we talk about when we talk about codes}
+
+Let's work our way up to the brain from simpler devices, starting with one that is man-made, a car engine, and then moving to a somewhat comparable biological organ, the
+heart, which can provide a bridge to the brain.
+
+%% cryptography
+Cryptography gives us the concepts of a code, of encoding and decoding. In cryptography, one is actively trying to hide a message, but still make it possible for authorized
+users to access that message later by a process of decoding. Cryptographic concepts of coding are concerned with the meaning of a message. A related term 
+is representation: a signal, a code or a set of codes or signals may be regarded as identifying a particular person, thing, concept, image, object or place.
+
+By contrast with cryptographic codes and with theories of representations, the coding concepts that emerge from Shannon’s communication
+theory are agnostic to meaning.\cite{Shannon1948-ks} In communication theory, the medium is the message.
+Hence, the term ``information theory'' is a bit of a misnomer due to this lack of need for decoding.
+
+\note{if maunsell is augmenting the carrier then signals can get throuugh; cf tDCS; distinguish signals from codes}
+
+%% go into the body
+The challenge in biology, medicine, and diagnostic engineering lies in interpreting or decoding signals that we have not ourselves encoded. 
+In the following, we will use the word {\em signals} to consider what we as observers can measure, and {\em codes} to identify signals that
+are used by the body and brain that can directly or indirectly motivate a behavior.
+
+%% 2 kinds of signals -- those that are interpreted and those not
+Physiologists and physicians observe two kinds of signals in animal and human bodies, those that are being used as codes interpreted by the body and those that are correlates of physical
+processes. In some cases, these measurements may be ambiguous -- adenosine is a signaling molecule and is also the primary ingredient in cell energy storage.
+Similarly, blood-oxygen-level-dependent (BOLD) is a signal used to interpreting brain activity which is a correlate of energy delivery.
+
+Ambiguity is also found when we measure signals from the heart, which in addition to being an engine and pump, also requires a complex set of molecular and electrical signals
+to maintain adequate circulation.
+
+%% limited phenomenology and epiphenomenology
+which provide only a very limited subset of
+phenomenology in a complex system. Because the signals extracted by an experimentalist have only a limited relationship to the underlying reality, they can all be regarded
+as epiphenomena -- correlatives of underlying processing at levels of complexity beyond our capacity for measurement.
+
+%% what lurks in the hearts of men?
+By contrast, pulse rate and regularity are important correlative codes for physicians but are not detected directly as causal code. From earliest times, biologists were able
+to identify the pulse as a code for bodily dysfunction, even before identifying it with the hypothesis (now a fact) of the heart as a pump in a circulatory system. A modern
+physician can now decode the pulse with greater accuracy, noting that an extremely fast pulse is likely to reflect the pathological condition of ventricular tachycardia, while
+a fast irregularly irregular pulse is likely to reflect atrial fibrillation. These correlative codes are interpreted based on the expected normal distribution of pulse rates,
+and can also be considered a normative encoding. Excursions outside the norm can then be looked up in tables to identify likely causes.
+
+In the case of the body, we can't do a tear-down but can similarly use observables to identify dysfunction. A major engine of the body is the heart. Physicians have identified
+accessible observables to identify engine function: pulse and blood pressure. The pulse is purely epiphenomenal -- the oscillation of subcutaneous tissue, bone, and skin, like
+the vibrations of the internal combustion engine, are inefficiencies that nonetheless give useful information about underlying cardiac performance. 
+Blood pressure is only partly epiphenomenal. The pressure monitored in an arm or leg is rarely useful as an indicator of adequacy of perfusion of that arm or leg. More often,
+it used as an indicator of cardiac function and an indicator of signaling within the body. The physician identifies as a correlative code or normative code. He may measure pressure
+directly with a transducer placed in the aorta, or indirectly by using a cuff to decode the epiphenomenon of arm expansion with blood passage. Blood pressure is also directly
+decoded by receptors in lung, kidney, and aorta so as to provide a causal code. A major evolutionary pressure over the history of vertebrates (and many invertebrates) has been
+to avoid fatally low blood pressure by quickly responding to hypotension, a not uncommon consequence of hypovolemia following hemorrhage. Receptors that decode blood pressure
+then encode the value in a variety of interconnected hormones and neural signals. These encodings can eventually reach the brain as a representation of thirst.
+
+How information is used internally is of paramount importance in defining neural representations, and hence the neural code. Therefore, we will focus on this meaning of neural
+coding in this review. When we discuss codes that are of use to the observer but are not used by the organism, we will refer to these as correlative codes, codes that are of
+interest to an outside observer. As noted above, a correlative code may provide clues as to actual underlying codes. The interests and interpretation of an experimenter are
+entirely different, and in some cases antithetical, to the interests and importantly desires of the organism that is using the code. In the case of the experimenter, we know
+what is being encoded and we can extract that code and then relegate the variability across presentations to the trash-bin of “noise.” From the perspective of the organism,
+this same noise is coding context, bias, priors that may be more important that the few bits of objective information being thrown his way. The code can at a certain location
+represents certain information content (signal) that is partially used by readout neurons. Other readout neurons can use different parts of the same information content.
+The use of information theory for identifying codes
+Information theory is a useful tool to compare different codings providing a numerical measures of precisely how much information is being carried by one part of a signal
+relative to another. Describing information as a reduction in uncertainty in one variable when another variable is known, allows to quantify uncertainty using entropy, as well
+as its reduction, and thus, information. For example, in (Timme \& Lapish (2018). A tutorial for information theory in neuroscience. eNeuro 5(3) e0052-18) they calculated the
+transfer of entropy in spike rates.
+
+Spikes stand out against the background resting membrane potential. Spikes were therefore identified as a candidate signaling mechanism. 
+Spikes were noted to be relatively uniform so that spike size and shape were discounted as relevant variables. Early on, theorists hypothesized
+that the single spike alone might represent the 1 in a binary signaling scheme. Subsequently, this too was discounted. Focus was placed on groups of spikes, whether simply
+counted or arrayed in a particular sequence. 
+
+experimenters are never used by the organism. In other circumstances, an experimenter may be identifying a code that is used downstream by the animal -- an identification that
+can be confirmed by altering the code and showing that behavior changes. In many cases, we as experimenters are able to identify an epiphenomenal correlate of a code that is
+being used, but have no way of directly measuring the signal that the organism can detect.
+
+As we consider biological coding, it is easiest if we step back from the brain and consider a system that is simpler and better understood -- the cardiovascular system. This
+system uses a variety of receptors and signals to maintain adequate perfusion.
+
+Cognitive neuroscience and computational linguistics utilize psychological and psychophysical experimentation to identify representations at highest levels of representation. 
+It is expected that eventually there will be a meeting with the mind such that the lower-level codes tested neurophysiologically can be mapped onto cognitive representations.
+This is already possible at a gross level. For example, cognitive psychology shows the dissociation between what and where that matches the dual visual circuits identified
+anatomically and physiologically.  When we identify representations at the cognitive level, we have introspective referents. Even in cases where these referents are naive,
+incomplete or even misleading, they still provide a conceptual framework -- a place to stand while operating our lever. By contrast, when we identify possible codes at the
+lower levels, intuition and introspection are of no help. Instead we draw our conceptual framework from technologies we know, which gives us the history of metaphors ranging
+from wax tablets, to hydraulics, to telephone switchboards, to computers and ANNs.
+
+Information theory is the standard formalization for detecting, or suspecting, an encoded message. As noted above, information theoretic techniques only reveal correlation and
+are entirely agnostic to whether it has any meaning, or any causal effect, in the organism. Information theory requires that you provide an a priori guess as to what quantity
+is being encoded -- it is this quantity, whether in the world or elsewhere in the nervous system, which you will be comparing to whatever signal you are measuring in the
+nervous system. Similarly it requires a priori assumptions about where, when, and how the message will be detectable, usually based on the limitations of the recording
+equipment. The measurement itself may be accomplished with a variety of algorithms, including mutual information and normalized transfer entropy.
+
+% Rates and oscillations are both indicators of underlying coding
+\subsection{Rates and oscillations are both indicators of underlying coding}
+
+The rate coding community
+acknowledges the importance of ensemble codes based on correlated firing but only at the relatively long periods of 100s of msec required to determine
+rate.\cite{Georgopoulos1986-dv} The assumption of rate ensembles provides several corollaries: 1. ergodicity -- activity in a single cell over multiple presentations of a stimulus is
+representative of the activity across a population of similarly coding neurons at a given time; 2. sparse coding -- the rapid firing of a small subset of neurons determines
+downstream responses and eventual behavior; 3. noise -- variability in firing is evidence of irreducible noise in the system. We will address each of these assumptions below.
+
+% Roles for information theory
+\subsection{Modeling of codes: multiscale modeling, information theory, control theory, artificial neural networks}
+
+Information theory, originally called communication theory, is a model of how coding works.
+
+Whether using information theoretic or other techniques, our limited measurements means that we can only know a limited amount, at present only a tiny amount, of what is being
+encoded. This will become clear below as we consider the roles of neural ensembles, currently measureable only to order 100, of local voltages, currently largely unmeasurable,
+and of chemistry, similarly unmeasurable, in coding.
+
+%% Roles for multiscale modeling
+
+The neocortex is designed to support multiple codes. To begin to understand these codes we need to see how neocortical structure determines dynamics and how this activity in
+turn supports candidate ensemble encoding mechanisms. We draw from a number of published ensemble coding theories, both our own and those of others [refs]. These encodings
+represent different phases of processing which may be separate in time or may coexist (embedded encodings) but represent different levels of processing.
+
+%% multiscale modeling and the role of subcellular processing; Beyond the spikes {by Thibault Lagache}(by Matthew Singh)
+\subsubsection{ Beyond the spikes}
+Spikes are the  basis for inter-neuronal communication, but are only the most visible part of more complex coding in the individual cell.
+A fuller understanding of neural coding will require study of how putative spike codes act upon post-synaptic targets.[i]
+It may be possible to facilitate our understanding of the ensemble code by identifying how the cell utilizes the up-to 10,000 inputs that may impinge upon it.
+In sort, code-breaking is facilitated by replicating the decoder, as was seen in WWII with Turing and the Enigma project.
+However, as noted above, neural ensembles are likely to be coding for many variables simultaneously and there is no reason to believe that the individual neuron needs to
+demodulate or separate these in order to extract specific information from mixed codes -- the neuron is only 1 component -- a cog in the machine.
+
+% Information processing is not optimal
+\subsubsection{Information processing is not optimal}
+
+It is sometimes suggested that evolution results in behavioral optimality by virtue of placing intense competitive demands on individuals of a species. This interpretation
+ignores the fact that environments and circumstances are continuously changing so that an optimal response at any one time or for any one circumstance will not be optimal
+later. It has been suggested that the presence of degenerate solutions (many different parameters for biological problems
+
+A major task of the CNS is to throw out information to key in on what is relevant to the organism. Representations in the nervous system are “sparse” in the sense that they
+omit the irrelevant. Information/codes/representations that are sent downstream will often not have functional consequences because other areas determine that they are not
+relevant so that they are discarded -- potentially relevant information whose potential was not realized.
+
+Mutual information can be used to measure the encoding of stimulus and behavioral information by individual neurons. Transfer entropy and information transmission can be used
+to measure information flow between neurons. The partial information decomposition can be used to break down encoding by two variables into redundant, unique, and synergistic
+parts. Finally, the precise interpretation of an information theory analysis is dependent on the assignment of variables (see Timme \& Lapish 2018).)
+In particular, analysis of neuronal ensembles ask many fundamental questions and challenge existing theories about the role of spike coding:
+What is the computational role of ensembles ?
+
+The role of computational ensembles is poorly understood and represents an important future challenge for theoretical neurosciences. Main hypothesis is that ensemble allow
+noise reduction [a]in the system, but in view of recent experiments using optogenetics to manipulate single neurons in ensembles (Carrillo-Reid, L., Yang, W., Kang Miller, J.
+E., Peterka, D. S., \& Yuste, R. (2017). Imaging and optically manipulating neuronal ensembles. Annual review of biophysics, 46, 271-293.), it seems that actually there exist a
+hierarchy of neurons in each ensemble and also, that ensembles overlap. Thus, it seems that ensemble function in brain computation is far more complex than signal averaging
+and linear filtering.
+In that context, analyzing neuron spiking (emission and reception) should account for the “individuality” of each neuron and its embedding in the larger ensemble community. 
+What determines the composition and size of an ensemble ?
+
+Another important property of neuronal ensembles is their quite small size (few tens of cells) that challenges the mean field assumption as variability between single cells
+has to be taken into account at this scale (Tsodyks, M., Pawelzik, K., \& Markram, H. (1998). Neural networks with dynamic synapses. Neural computation, 10(4), 821-835.). This
+is even more important since each cell plays a different role inside the community, which likely depends on both its internal properties and its close neighbors. Thus, refined
+and/or hybrid models are needed to understand the emergent properties of such meso-scale organizations and their emergent properties.
+
+Conclusion: ensembles could be the fundamental units[b] of brain computation. It would thus be promising to understand how spikes carry information in such ensembles, but also
+how the non-stationary electrical landscape, and the limited size and resources of such units constrain single neuron spiking.
+
+Here we may have a lot to argue. Most of the theorists from physics background treat a single neuron or maybe a circuit as the basic information processing unit. However,
+experimentalists especially from the the community who highlight dendritic information processing believe a much finer scale such as dendritic branches[c]
+(London\&Hausser,Annu. Rev. Neurosci.2005; Smith et al., Nature, 2013) or maybe spines (Chiu et al., science, 2013). If the basic function unit is different, then the required
+coding mechanism may accordingly change or vice versa. When we talk about ‘spike’, it mainly means a biological Na+ signal which is usually assumed to be binary, in the
+context of the necessity of propagation from one layer to another lay. Since the spike itself does not carry much information, we need population firing rates or synchronized
+spikes to carry the analog information. However, if information is coded at a very fine scale in the dendritic branch or spines, another form of coding[d], the amplitude of
+Ca2+ concentration or other signals may carry the information rather than a binary spike (Cichon et al., Nature,2015). In this context, the size of the ensemble can be very
+small.
+
+I believe we have to consider levels of abstracts in here. The encoding (or I would phrase it more as computing) described in the two paragraphs above are on the algorithmic
+level (in the Marr sense), i.e., it can be described separately from implementation level details. They do not address the code in which computations are based on. For
+example, you can talk about low-pass filtering on the algorithmic level, but it can be implemented using analog circuits, which assumes the underlying signal structure to be
+an analog one, or using digital circuits that is based on discrete-time representation of a signal. The same applies to neural system. What are the representations that these
+algorithms operate on, is it time-based code, or rate-based code, or a mix of these? Then the algorithms/transforms described above can be mapped to the circuit level
+representation, which provides the basis for experiments. However, if we only limit ourselves on the algorithm level, they cannot be verified by any experiment[e]. I believe
+this is what this document is about (at least partly), how do we define time-based and rate-based codes, what evidences support each of the claim, what theorems have been
+proven, what types computations/memory operations/motor commands can t
+
+%% bugaboos
+\subsubsection{More bugaboos}
+
+linearity: The traditional view of mixed-selectivity is that the combined code is a linear superposition of rate codes for each variable. The neurons within each ensemble have a variety
+of selectivity profiles, so individual variables might be extracted by adding and subtracting different inputs to censor irrelevant information.
+
+% Labels vs messages
+\subsection{Labels vs messages}
+
+Neural codes need to not only communicate representations, but also ensure that they reach the correct targets. Current frameworks postulate that specificity could
+be generated from either unmixing the outputs of neural ensembles or using multiplexing to transform anatomical labels into temporal patterns. Understanding how neurons induce
+specificity will inform how to interpret spike trains in terms of “messages” vs. “labels” and inform what sorts of additional data will need to be simultaneously gathered in
+order to “decode” complex spike trains.
+
+In temporal multiplexing, the efferent population is tuned so as to resonate (cochlea-like) with particular input frequencies or patterns.
+The pre-synaptic population can label targets with specific output frequencies band (Gu, van Rijn, \& Meck, 2015) or
+by phase coupling on target oscillation (Fries, 2015). 
+Are these temporal label carrier signals decipherable only at the ensembles or will it be possible to deter in individual cells? 
+Probably require at least enough of an ensemble to make use of feedforward and feedback inhibitory influences.
+There may be still more intricate forms of carrier signals: e.g., the timing of spikes within bursts which themselves have characteristic frequencies or patterns.
+
+Control theory which studies how input signals act upon dynamic systems. Control theory also allows for exploratory reverse-inference
+by identifying which classes of signal will achieve a given objective (e.g. a desired combination of post-synaptic activity) which may prove to be useful bases on which to
+decompose mixed representations.
+
+Understanding the nature of specificity and carrier signals in the nervous system may prove critical to theories well above the cellular scale. Does EEG alpha power indicate a
+message or a label (labeled line tells where it came from then put message into a line to say something). 
+Studies at the cellular and ensemble scale may thus provide important frameworks for understanding neural processes at meso and macroscale.
+
+% Importance of nonstationarity (bill section)
+\subsection{Nonstationarity and noise}
+
+The nervous system is nonstationary so that noise would be difficult to identify if it were there. One role of a brain is to get rid of irrelevant information such as noise in
+the environment -- eg the obscure glimpse of a predator through leaves requires that we get rid of the leaves as noisy background.
+Was ‘noise’ incorporated into theoretical neuroscience because the theory does not know how to deal with this kind of information? Although noise was thought to disturb the
+neuronal firing patterns, noise has also been reported to increase the regularity of spikes in single neuron or neuronal ensembles (Ermentrout et al., Trends Neurosci. 2008).
+Both theoretical and experimental studies have discovered that correlated noisy inputs can generate synchronous spiking in unconnected neuron pairs (Galan et al., J Neurosci
+2006; de la Rocha et al., Nature 2007; Doiron et al., Nat. Neurosci 2016). For instance, each cortical inhibitory neuron can be contacted with tens of thousands of other
+inhibitory neurons in the local circuit. Consequently, the spikes from a single inhibitory neuron will be able to provide correlated inputs to many other neurons in the
+circuit and trigger correlated spikes in the targeted neurons (Ermentrout et al., Trends Neurosci. 2008). Another interesting example is noise can shift pyramidal neurons from
+integrators (support rate coding) to resonators that support the oscillation at theta frequency in the hippocampus (Prescott et al., J Neurophysiol. 2008).
+
+Much of the effort in sensory neural assessment goes into attempting to control for all ancillary factors to ensure that the same response is obtained on every stimulus
+presentation. But, one cannot step into the same river twice -- not only due to the molecules but also do to the effects of dynamics; similarly one cannot present to the same
+brain twice - dynamics, thoughts, states, preconceptions, priors, mind, are always changing. The experimenter often will assume that the signal is there, somewhere, and that
+what is not accounted for is noise. It’s can be called noise only in the sense that it obscures the signal that interests the experimenter. This is not the only signal that
+interests the animal. In the case of particularly boring, repetitive tasks, this may even be rather low on the list of interests -- an obligatory (since rewarded) distraction
+from current mental focus.
+
+Because of this, there is no identifiable code for a particular object out there in the world. Instead, the coding includes all context -- most importantly the subjects many
+“priors” that determine how the objective becomes subjective.
+
+This may make it seems that decoding is impossible and indeed it is likely to be beyond foreseeable technology to fully mind-read a mammal, although perhaps a fly would be within range.
+
+Instead of picking up the one key signal and relating it to object or to object+context, we here suggest that the many codes of the brain will allow us to see how the brain
+multiplexes across codes, in the same way as it splits the visual stream into dorsal “where” and ventral “what.”
+
+% Rate vs Temporal Codes: Not a Continuum -- Amarasingham section
+\subsection{Rate vs Temporal Codes: Not a Continuum -- Amarasingham section}
+
+The two most obvious putative signals are rates and oscillations.
+High firing rates are observable in both individual cells and in local networks as ripples. Oscillations are observable at multiple scales from the local level of CSD up
+through local field potentials and massive field potentials measured in EEG.
+Firing rate was then became the only obvious measure -- something that could be readily heard and identified on a speaker attached to the recording apparatus. Similarly,
+oscillation could be readily identified at the level of the brain area.
+
+For the purposes of this discussion, we will assume that spikes are unitary and their shape conveys no information[m] (but see Computational model of the serotonergic
+modulation of sensory neurons in Aplysia. Baxter DA, Canavier CC, Clark JW Jr, Byrne JH. J Neurophysiol. 1999). 
+also a mccormick paper about influencing postsyn cell without changing rates by biasing the voltage -- i'll find it
+We then consider whether the averaged rate of spiking or the
+precise timing of spikes carry functional representations to their targets.
+\note{A prevailing view is that there is a continuum between rate and temporal coding as evidenced by the
+following quote: ``It has by now been widely observed that the classical distinction between rate and temporal coding lies on a continuum and is more generally an issue of time
+scale (Dayan and Abbott 2001; Rieke et al. 1997)[n].” (Amaringsingham et al. 2012). On the other hand, others (Brette 2015) have argued that “Rates and spikes belong to two
+different conceptual categories so there is no middle ground between rate-based and spike-based views”.}
+ 
+One possible definition of temporal and rate codes is actually a continuum based on the spike jitter parameter k in units of time. The following proposed thought experiment
+(Amarasingham et al. 2012) differentiates between the codes. If you were able to randomly jitter spike times across the relevant population, and you have a readout in terms of
+a task or downstream readout, k is the maximum amount by which you can jitter spike times and still perform the task or obtain a functionally similar output. In auditory
+cortex, jittering spike times on the order of microseconds disrupts binaural sound localization, a clear example of temporal coding by this definition. However, it is not
+possible to know both the rate and the time at which that rate is expressed (a version of Heisenberg’s uncertainty principle), so the probabilistic, statistical definitions of
+rate coding break down at small time scales.
+
+Another possible definition is that statistics of the spike trains (mean and possibly higher order statistics such as the variance of the ISI) alone are sufficient to
+characterize the effect of the spike trains on the downstream targets without knowledge of precise spike times. Rate coding can be defined in the limit of no averaging as
+instantaneous variations in the inhomogeneous frequency which reduces to temporal coding and is the basis for arguing that there is a continuum of codes. Even pacemaking could
+be modeled as an inhomogeneous firing rate that is one in periodically occurring bins and zero elsewhere. However, any sensible definition of rate coding should include
+non-trivial averaging over time, over trials or over a population. We propose the following alternative thought experiment in favor of non-rate based codes. Take an ensemble
+of spike trains in a given brain region. Rather than jittering the spikes, phase shift the ongoing theta, gamma, alpha or delta oscillation by 180 degrees and test whether the
+animal’s behavior dramatically changes in response to the same stimulus. A priority should be placed on designing thought experiments to probe the role of temporal codes and
+figuring out how to implement them in a nervous system, including multiplexing. Constructing theoretical frameworks that include theorems to predict effects of perturbations
+on the representation and processing of signals is a particularly relevant aspect of this priority.
+
+Definition of firing rate that is directly measurable:
+1. The instantaneous firing rate: inverse of the interspike interval. It is by definition a step function and is clearly available to the downstream target. 
+2. Binned spike counts: an infinite number of bin sizes are possible. The information available to the downstream neuron is a rolling window in which the contribution of each
+spike is likely unequal.
+Inferred probabilistic definitions of spike rates
+1. The most often used one is a inhomogeneous firing rate probability. As pointed out by Brette 2015, the only way the downstream target can recover this probabilistic firing
+rate is to average across many input streams from with identical, independent inhomogeneous firing rates. The qualitative difference in firing rate versus temporal coding
+schemes is in the former this population average is sufficient to predict the firing of the target element but in the latter it is insufficient. This definition needs to be
+broadened for a fair comparison.
+
+% Examples -- place cells; purkinje cells; STG cells
+\subsection{Examples -- place cells; purkinje cells; STG cells}
+In this context, do different coding mechanisms code different information simultaneously or a switch is required between different mechanisms?
+The theoretical neuroscience community should encourage work that finds multiplexing of information using different “coding” strategies, or even sequential strategies. Rate
+coding can be defined in other forms than the way it is defined in Brette 15 paper. Give place cell and other examples of dual coding strategies. There is an example in
+Purkinje cells in the cerebellum. Another example is given in the spiking neurons of the lobster stomatogastric ganglion. These neurons release neurotransmitter below the
+threshold for action potential in a functionally significant way, while they can elicit spike-evoked inhibitory potentials in postsynaptic neurons (Graubard et al., 1980).
+
+% Neural Computation Guides Behavior rather than reconstructing inputs -- Bialek and the fly brain; pattern of ISI matters
+\subsection{Neural Computation Guides Behavior rather than reconstructing inputs -- Bialek and the fly brain; pattern of ISI matters}
+An influential paper (Bialek et al. 1991) used an optimal linear decoder to reconstruct a stimulus waveform from spike trains. However, the neural computations that are
+performed on spike trains do not necessarily reconstruct the input stimulus waveform. Instead, the problem could be posed as a control problem where the output is behavior. In
+this case, the spike trains elicited by changes in the angular velocity of the wide visual field need to be converted into commands to the muscles that control the fly wings
+on either side. Future neuromorphic work like constructing a fly robot (or virtual fly) that performs this operation would suggest falsifiable strategies on how real flies
+perform this control operation. Note that early Adrian and Hartline work did not demonstrate that the rate coding on the frog sensory nerve fiber was translated into rate
+coding muscle activation (the physical plant). Moreover, more recent work showed that Recent work by Farzan Nadim’s lab shows that the pattern of
+interspike intervals matters, particularly the duration of the first ISI. The ISI pattern in the pyloric dilator neuron in the stomatogastric ganglion bursts with a parabolic
+pattern of ISIs that first increases then decreases. Driving the neuron with a constant average frequency or even a constant frequency corresponding to the maximum was not as
+effective in driving the pyloric dilator muscle. Thus even in this simple invertebrate example, the average rate does not capture the essential features of the spike train.
+[u]The spiking regularity has been found to play a critical role in cerebellum related eye movements, when the spiking rates were indistinguishable between WT Purkinje cells
+and diseased cells after optokinetic stimulation (Hoebeek et al., neuron 2005).
+ 
+Not only spiking rates or spike timing can code, but also the pause. This mechanism works especially well for spontaneously active inhibitory neurons like the cerebellar
+Purkinje cells (Volker et al., Neuron 2007) and brain stem omnipause neurons (Pare\&Guitton 1998). A pause can carry the information of disinhibition of downstream cells. The
+tonic spiking of these cells can depress the unwanted movements or behaviors, but a pause can make the planned movement occur immediately. In mammalian midbrain dopamine
+neurons, pauses can code for disappointment that an expected reward was not received (Schultz work).
+
+% Rate based codes assume all cells are doing the same thing ?  -- role of heterogeneity
+At least in the cerebellum, related behaviors should be coded by an ensemble of Purkinje Cells with bidirectional (heterogeneous) changes of their firing rates, i.e. some with
+increased firing rates but others with decreased firing rates (Hertfeld et al., Nature, 2015). It is found that if we use the population of Purkinje cells with only increased
+fring rates to code the behavior, the population firing rates last much longer than the termination of the behavior. If we think further about this, we humans develop
+different terms or theories to try to uncrack the brain. Does the brain even know what are ‘spikes’? We tend to find the ‘optimal’ information coding or processing mechanisms,
+but the brain may really not work as we wish. Starting from this example, to make the population firing rates of an ensemble of Purkinje cells efficiently code the movement,
+the cerebellum requires a group of neurons with heterogeneous firing changes. A fact is that heterogeneity in oscillatory neurons constraints spike synchronization (Burton J
+Neurophysiol, 2012), but intermediate heterogeneity can facilitate the population coding. To code or deal with many complicated information, the brain may have to balance
+between their specific coding performances rather reaching an optimum in every aspects.
+
+% Additional text:
+\subsection{Additional text:}
+
+There is a long history of debate about the nature of the neural code -- in particular whether rate coding is sufficient, or whether one needs to consider the precise time of
+individual spikes in order to understand how a neuron, or neuronal ensemble, is conveying information. In this review, we introduce the concept that rate vs time is a false
+dichotomy, and that not only are these two means of communication present in the brain but that other codes are as well.
+
+From the point of view of theoretical neuroscience, an ideal would be to understand how the biophysics of downstream neurons extract information from a spike train rather than
+on how an external observer could do so. A complete description of encoded features might be achieved first in simple organisms with a limited repertoire of states and
+actions.
+
+Neural computations that are performed on spike trains do not necessarily reconstruct the input stimulus waveform. In some cases, the problem could be better posed as a
+control problem where the output is behavior. In this case, the spike trains elicited by changes in the angular velocity of the wide visual field need to be converted into
+commands to the muscles that control the fly wings on either side. Future neuromorphic work incorporating control of the “physical plant” like constructing a fly robot (or
+virtual fly) that performs this operation would suggest falsifiable strategies on how real flies perform this control operation
+
+A priority should be placed on designing thought experiments to probe the role of temporal and rate codes and figuring out how to implement them in a nervous system, including
+multiplexing. Temporal codes can take forms including but not limited to wave-front codes, synchrony codes, sequence codes, pattern codes, synfire codes[v], and oscillation
+phase codes.
+
+Constructing theoretical frameworks that include theorems to predict effects of perturbations on the representation and processing of signals is a particularly relevant aspect
+of this priority.
+
+[a]there is no noise (or very little) -- see below
+[b]is there an alternative? -- it seems clear that the neuron is not the fundamental unit
+[c]dendrites are part of the ensemble -- this is the nature of scale overlap -- you cannot encapsulate dendrites into a neuron as a distinct unit
+[d]this can be a whole section or else a whole other paper
+[e]another reason why the marr perspective is not very useful -- nothing above the implementation level (whcih marr tends to ignore) is verifiable
+[f]can you elaborate on this statement -- i would think we would agree that spikes are carrying information within the network and to other dendrites (subthresh codes)
+[g]I think by-product is the wrong word here. The key question is that if this product contains the essential information of the input signals. You cannot argue that Shannon sampling is only a by-product of the bandlimited analog signal since the amount of information is equivalent in the sampled output.
+[h]I think this might be a topic for a different white paper on the role of subthreshold membrane potential: for a different but related angle see Devalle Roxin and Montbrio 2017, which I think is more relvant to the rate vs temporal code "debate"
+This is Carmen, I need to figure out how to sign in as myself
+[j]my fave theme -- NO single code
+[k]this is very nice -- can think of cells as a band comparable to hair cells of cochlea? -- everyone listening for particular signals via particular fequencies
+[l]perhaps we need a sectoin on this;  i think everyone agrees that EEG is epiphenomenal (ie no telephathy no matter how close your friends head is);  LFP may be epiphenom. or may play a role in influencing other cells via ephaptics; but even if it's all an epiphenom it's a relection of a key underlying process -- just as at the beginning i said that the pulse was epiphenom but closely reflects the import phenom
+[o]True, but why is it (how it is used internally) important in defining the code? The code can represent certain information content (signal) that is partially used by readout neurons, and other readout neurons can use different parts of the information content. However, it is the code that defines what information content it carries, not who is using it.
+[p]See the sentence I inserted after, is it helpful?
+[q]Yes.
+[r]added your sentences to the 2nd  para above
+[s]Looks good. Thanks.
+[t]is this another word for sequence codes?
+[u]Add examples from Lena Ting’s work?
+[v]is this another word for sequence codes?
+
+\bibliography{local}
+
+\end{document}

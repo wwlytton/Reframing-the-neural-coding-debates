@@ -1,0 +1,267 @@
+% $Id: misc.tex,v 1.47 2013/01/09 19:40:59 billl Exp $
+
+% \usepackage{ifthen}
+% \usepackage{mycite}
+% \usepackage{amsmath}
+
+\ifx\graphicspath\undefined
+  \ifx\pdfoutput\undefined
+    \usepackage[dvips]{graphicx}
+    \DeclareGraphicsExtensions{.ps,.id,.eps}
+  \else
+    \usepackage[pdftex]{graphicx}
+    \DeclareGraphicsExtensions{.pdf}
+    \usepackage{type1cm}
+  \fi
+  \graphicspath{{id/}{figs/}{ps/}{pdf/}{gif/}{img/}{gif2/}}
+\else
+  \message{**** include misc before graphicx? ****} %%% or use \message
+\fi
+
+% convenient functions
+\def\bpath{/usr/site/config/papers} %%%% site of our .bib files
+
+% scientific notation (sn) 
+\newcommand{\sn}[2]{$\mathrm #1 \cdot 10^{#2} $}
+% \Exp1.1(4)
+\def\Exp#1(#2){\ensuremath{#1 \cdot 10^{#2}}}
+% \e1.1e4
+\def\e#1e#2{{#1} $\!\cdot10^{#2}$}
+% \p1.1e2,4
+\def\p#1e#2,#3{\ensuremath{\mathrm #1 \cdot #2^{#3}}}
+
+\newcommand{\code}[1]{\\ {\tt #1} \\ \noindent}
+\newcommand{\nibf}[1]{\noindent{\bf #1}}
+\newcommand{\libf}[1]{\vspace*{0.1in} \noindent {\Large \bf #1}}
+\newcommand{\niem}[1]{\noindent{\em #1}}
+\def\ra{$\rightarrow$}
+\def\etal{{\em et al.}}
+\def\cf{{\em cf.}}
+\def\ie{{\em i.e.,}}
+\def\Ie{{\em I.e.,}}
+\def\eg{{\em e.g.,}}
+\def\etc{{\em etc}}
+\def\Eg{{\em E.g.,}}
+\newcounter{c2} 
+\newcounter{cnt}
+\newcounter{fig}
+\setcounter{fig}{0}
+\setcounter{c2}{0}
+\def\inc0{\setcounter{c2}{0}}
+\def\incn{\noindent \stepcounter{c2}{1}\arabic{c2}. }
+
+\def\sstretch{1.0}
+\newcommand{\newstretch}[1]{\setstretch{#1} \small\normalsize}
+\newcommand{\restretch}[0]{\setstretch{\sstretch} \small\normalsize}
+\newcommand{\float}[1]{\parbox[htb][#1in][0in]{6in}{~~~}
+
+}
+
+\def\bpm{\begin{pmatrix}}    \def\epm{\end{pmatrix}}
+\def\beq{\begin{equation}}   \def\eeq{\end{equation}}
+\def\be{\begin{equation*}}   \def\ee{\end{equation*}}
+\def\bip{\begin{inparaenum}[\bfseries{}1.]} \def\eip{\end{inparaenum}} 
+\def\bipp{\begin{inparaenum}[\itshape{}a.]} %%%% for nested listing 
+
+\newcommand{\bfig}[3]{
+\begin{figure}[htb]
+\begin{center}
+\epsfig{figure=#1,height=#2in,width=#3in}
+\end{center}
+}
+\newcommand{\efig}[0]{\end{figure}}
+
+\newcommand{\bfigg}[2]{
+\begin{figure}[htb]
+\begin{center}
+\epsfig{figure=#1,height=#2in}
+\end{center}
+}
+
+% formatting
+\ifx\note\undefined
+  \newcommand{\note}[1]{} % Create a way of putting in in-text notes
+\else
+  \renewcommand{\note}[1]{} % need to redefine \note{} anyway in case someone redefined it with diff args
+\fi
+\newcommand{\BAD}[1]{#1} % if using the wrong word identify the fact with BAD
+\newcommand{\NOTE}[1]{} % more visible note
+\newcommand{\notnote}[1]{{#1}} % something in process of going back and forth
+\newcommand{\Note}[1]{\hspace*{2in}{\em \bf $\langle\langle$ Note: #1 $\rangle\rangle$ }} % show a note
+\newcommand{\mydef}[2]{\global\def#1{#2}{#2}} % see also \suba in papers/grant/m1u01/ctl.tex
+\newcommand{\new}[1]{#1}
+
+% begin and end numbered list
+\newcommand{\blist}[0]{\begin{list}{\arabic{cnt}.}{\usecounter{cnt}}}
+\newcommand{\elist}[0]{\end{list}}
+\def\bbar{\cbstart}
+\def\ebar{\cbend}
+
+% figures
+\newcommand{\pref}[1]{(see p. \pageref{#1})}
+\newcommand{\cref}[1]{Chap.~\ref{#1}}
+\newcommand{\eref}[1]{Eqn.~\ref{#1}}
+\newcommand{\fref}[1]{Fig.~\ref{#1}}
+\newcommand{\bfref}[1]{\noindent {\bf Figure~\ref{#1}}}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\newfig}[1]{Fig.~\ref{#1}}
+\newcommand{\newfigure}[1]{Figure~\ref{#1}}
+\newcommand{\figlegend}[2]{Fig.~\ref{#1}: {#2}}
+
+%% \showfig{file}{label}{[ABC]} 
+%% eg \showfig{figs/d94apr26.05.id}{2cell}{} 
+\newcommand{\showfig}[2]{
+   \pagebreak
+   \begin{figure}[htb]
+   \includegraphics[scale=1,clip]{#1} 
+   {\noindent \bf Fig.~\ref{#2}}
+   \end{figure}
+}
+%% \showbmp{file}{label}{[ABC]} 
+%% same as showfig but needed for bitmaps so don't stretch them
+\newcommand{\showbmp}[3]{
+   \pagebreak
+   \begin{figure}[htb]
+   \centerline{Figure~\ref{#2}#3}
+   %%%% \epsfig{figure=#1}
+   \end{figure}
+}
+%% show the top of 2 or more figures on 1 page
+\newcommand{\showfiga}[3]{
+   \pagebreak
+   \begin{figure}[htb]
+   \epsfig{figure=#1,height=#2in,width=#3in}
+   \end{figure}
+}
+%% show the last of 2 or more figs on the page
+\newcommand{\showfigb}[4]{
+   \begin{figure}[htb]
+   \centerline{Figure~\ref{#2}
+   \epsfig{figure=#1,height=#3in,width=#4in}}
+   \end{figure}
+}
+%% \showfigc{file}{label}{caption} 
+%% eg \showfigc{figs/d94apr26.05.id}{2cell}{The caption} 
+\newcommand{\showfigc}[3]{
+   \pagebreak
+   \begin{figure}[htb]
+   \caption{#3}
+   \centerline{Figure~\ref{#2}
+   \epsfig{figure=#1,height=9in,width=7in}}
+   \end{figure}
+}
+
+%% \figl{file}{label}{caption} 
+%% eg \figl{figs/d94apr26.05.id}{2cell}{The caption} 
+\newcommand{\figl}[3]{
+   \begin{figure}[htb]
+   \begin{center}
+   \epsfig{figure=#1,height=3.5in}
+   \caption{#3}\label{#2}
+   \end{center}
+   \end{figure}
+}
+
+%% redo for use with graphicx
+%% \figi{label}{caption} -- file is in figs/label.id
+%% eg \figi{2cell}{The caption} 
+\newcommand{\figi}[2]{
+  \begin{figure}
+    \refstepcounter{figure}
+    \label{#1}
+    \begin{center}
+      \includegraphics[scale=.5,clip]{#1} 
+    \end{center}
+    {\noindent \bf Fig.~\ref{#1}: #2} 
+  \end{figure}
+}
+
+%% \figj{label}{caption} -- file is in figs/label.jpg
+\newcommand{\figj}[2]{
+  \begin{figure}
+    \refstepcounter{figure}
+    \label{#1}
+    \begin{center}
+      \includegraphics[scale=.5,clip]{#1.jpg} 
+    \end{center}
+    {\noindent \bf Fig.~\ref{#1}: #2} 
+  \end{figure}
+}
+
+%% rotate
+%% \figr{label}{caption} -- file is in figs/label.id
+%% eg \figr{2cell}{The caption} 
+\newcommand{\figr}[2]{
+   \refstepcounter{figure}
+   \begin{figure}[htb]
+   %% \begin{figure}
+   \begin{center}
+   \label{#1}
+   \includegraphics[scale=.5,angle=270,clip]{#1} 
+   \end{center}
+   % \caption{#2}
+   {\noindent \bf Fig.~\ref{#1}: #2}
+   \end{figure}
+}
+
+%% allow choice of scaling
+\newcommand{\figrs}[3]{
+%%   \begin{figure}[htb]
+   \begin{figure}
+   \refstepcounter{figure}
+   \begin{center}
+   \label{#1}
+   \includegraphics[scale=#2,angle=270,clip]{#1} 
+   \end{center}
+   % \caption{#3}
+   {\noindent \bf Fig.~\ref{#1}: #3}
+   \end{figure}
+}
+
+%% scaling + rotation
+\newcommand{\figs}[3]{
+%%   \begin{figure}[htb]
+   \begin{figure}
+   \refstepcounter{figure}
+   \label{#1}
+   \begin{center}
+   \includegraphics[scale=#2,clip]{#1} 
+   \end{center}
+   % \caption{#3}
+   {\noindent \bf Fig.~\ref{#1}: #3}
+   \end{figure}
+}
+
+% figos -- without the begin{figure} end{figure}
+\newcommand{\figos}[3]{
+   \begin{center}
+   \label{#1}
+   \includegraphics[scale=#2,clip]{#1} 
+   \end{center}
+   {\noindent \bf Fig.~\ref{#1}: #3}
+}
+
+% ig -- for making slides
+\newcommand{\ig}[2]{
+   \begin{center}
+   \includegraphics[scale=#2]{#1} 
+   \end{center}
+}
+
+% igr -- rotate ig
+\newcommand{\igr}[2]{
+   \begin{center}
+     \vspace*{-0.2in}
+   \includegraphics[scale=#2,angle=270]{#1} 
+   \end{center}
+}
+
+% testing
+\newcommand{\been}[0]{\begin{enumerate}}
+\newcommand{\enen}[0]{\end{enumerate}}
+\newcommand{\choices}[5]{\begin{enumerate} \item{#1} \item{#2} \item{#3} \item{#4} \item{#5} \end{enumerate}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

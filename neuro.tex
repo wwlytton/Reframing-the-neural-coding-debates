@@ -1,0 +1,224 @@
+% $Id: neuro.tex,v 1.21 2012/12/01 16:41:46 billl Exp $
+% transmitters and receptors
+\def\gabaa{GABA$_{\mathrm A}$}
+\def\gabaaname{$\gamma$-amino butyric acid receptor A (\gabaa)}
+\def\gabab{GABA$_{\mathrm B}$}
+\def\gababname{$\gamma$-amino butyric acid receptor B (\gabab)}
+
+% units and ions
+\def\mum{$\mu$m}
+\def\muM{$\mu$M}
+\def\deg{^{\mathrm o}} %% ?? doesn't seem to be built in
+\def\q10{Q$_{10}$}
+\def\cm2{cm$^2$}
+\def\uS{$\mu$S}
+\def\us{$\mu$s}
+\def\uScm2{$\mu S/cm^2$}
+\def\mScm2{mS/cm$^2$}
+\def\Scm2{S/cm$^2$}
+\def\ohmcm{$\Omega \cdot$cm}
+\def\ohmcm2{$\Omega$/cm$^2$}
+\def\mufcm2{$\mu$F/cm$^2$}
+\def\Mohm{M$\Omega$}
+\def\kohm{k$\Omega$}
+\def\erev{E$_{\mathrm{rev}}$}
+\def\mg2{Mg$^{\mathrm{+2}}$}
+\def\zn2{Zn$^{\mathrm{+2}}$}
+\def\ca{Ca$^{2+}$}
+\def\cl{Cl$^{-}$}
+\def\cs{Cs$^{++}$}
+\def\cd{Cd$^{2+}$}
+\def\co{Co$^{2+}$}
+\def\o2{O$_\mathrm{2}$}
+\def\co2{CO$_\mathrm{2}$}
+\def\ba{Ba$^{++}$}
+\def\cai{[Ca$^{++}]_i$}
+\def\ni{Ni$^{+}$}
+\def\na{Na$^+$}
+\def\k{K$^+$}
+\def\hco3{HCO$_3^-$}
+
+% g's
+\def\gmax{$\overline{\mathrm g}$}
+\def\pmax{$\overline{\mathrm p}$}
+\def\imax{$\overline{\mathrm i}$}
+\def\gleak{$\overline{g}_{\mathrm{leak}}$}
+\def\giT{$\overline{g}_{\mathrm{T}}$}
+\def\gil{$\overline{g}_{\mathrm{L}}$}
+\def\gim{$\overline{g}_{\mathrm{M}}$}
+\def\gic{$\overline{g}_{\mathrm{C}}$}
+\def\gin{$\overline{g}_{\mathrm{N}}$}
+\def\gir{$\overline{g}_{\mathrm{R}}$}
+\def\gh{$g_{\mathrm{h}}$}
+\def\gmaxh{$\overline{g}_{\mathrm{h}}$}
+\def\ggabaa{$\overline{g}_{\mathrm{GABA A}}$}
+\def\ggabab{$\overline{g}_{\mathrm{GABA B}}$}
+\def\gnmda{$\overline{g}_{\mathrm{NMDA}}$}
+\def\gampa{$\overline{g}_{\mathrm{AMPA}}$}
+\def\giahp{$\overline{g}_{\mathrm{AHP}}$}
+\def\gim{$\overline{g}_{\mathrm M}$}
+\def\gkca{$\overline{g}_{\mathrm C}$}
+\def\gT{$\overline{g}_{\mathrm T}$}
+\def\glnmda{GLU$_{\mathrm{NMDA}}$}
+\def\glampa{GLU$_{\mathrm{AMPA}}$}
+\def\glmetab{GLU$_{\mathrm{METAB}}$}
+\def\gk{$\overline{g}_{\mathrm{K}}$}
+\def\gna{$\overline{g}_{\mathrm{Na}}$}
+\def\gglu{$\overline{g}_{\mathrm{GLU}}$}
+\def\ggaba{$\overline{g}_{\mathrm{GABA}}$}
+
+% i's
+\def\iahp{$I_{\mathrm{AHP}}$}
+\def\ic{$I_{\mathrm C}$}
+\def\il{$I_{\mathrm L}$}
+\def\ileak{$I_{\mathrm{leak}}$}
+\def\iT{$I_{\mathrm T}$}
+\def\ikk{$I_{\mathrm{K}}$}
+\def\ik2{$I_{\mathrm{K2}}$}
+\def\ikdr{$I_{\mathrm{Kdr}}$}
+\def\gkdr{$\overline{g}_{\mathrm{Kdr}}$}
+\def\ia{$I_{\mathrm A}$}
+\def\id{$I_{\mathrm D}$}
+\def\im{$I_{\mathrm M}$}
+\def\ina{$I_{\mathrm{Na}}$}
+\def\inaf{$I_{\mathrm{Naf}}$}
+\def\inap{$I_{\mathrm{Nap}}$}
+\def\ip3{IP$_{\mathrm{3}}$}  %%%% not sure why these are failing \ip is defined somehow?
+\def\ip3r{IP$_{\mathrm{3}}$R}
+\def\ipass{$I_{\mathrm{pass}}$}
+\def\ih{$I_{\mathrm h}$}
+\def\icat{$I_{\mathrm T}$}
+\def\ican{$I_{\mathrm{CAN}}$}
+\def\ica{$I_{\mathrm{Ca}}$}
+\def\ical{$I_{\mathrm L}$}
+\def\ikca{$I_{\mathrm C}$}
+\def\igabaa{$I_{\mathrm{GABA A}}$}
+\def\igabab{$I_{\mathrm{GABA B}}$}
+\def\iglnmda{$I_{\mathrm{NMDA}}$}
+\def\iglampa{$I_{\mathrm{AMPA}}$}
+\def\iglmetab{$I_{\mathrm{METAB}}$}
+
+% from pfc paper
+\def\dcaapp{$\mathrm{\bf D}_{\mathrm{Ca}(App)}$}
+\def\pipp{\ensuremath{\mathrm{PtdIns(4,5)P}_2}}
+\def\ippp{\ensuremath{\mathrm{IP_3}}}
+\def\IPPPR{\ensuremath{\mathrm{IP3R}}}
+\def\ipppr{\ensuremath{\mathrm{IP_3R}}}
+\def\jserca{\ensuremath{J_{\mathrm{SERCA}}}}
+\def\jleak{\ensuremath{J_{\mathrm{leak}}}}
+\def\jip{\ensuremath{J_{\mathrm{IP3R}}}}
+\def\CA{$Ca^{2+}$}
+\def\IPThree{$\mathrm{IP_3}$}
+\def\cac{\mathrm{Ca_{cyt}^{2+}}}
+\def\cion{\ensuremath{J_\mathrm{memb}}}
+\def\cae{\mathrm{Ca_{ER}^{2+}}}
+\def\IPThreeR{$\mathrm{IP_3R}$}
+\def\Ihsm{cAMP}
+\def\camp{cAMP}
+\def\Ihm{$g_h$}
+\def\Ihg{$g_{h}$}
+\def\dcab{$\Delta CaB$}
+\def\PC{pyramidal cell}
+\def\BC{basket cell}
+\def\qten{$Q_{10}$}
+
+% other terms
+\def\pvalxy{P$_{\mathrm{xy}}$}
+\def\pvalee{P$_{\mathrm{ee}}$}
+\def\pvalae{P$_{\mathrm{ae}}$}
+\def\pburst{P$_{\mathrm{burst}}$}
+\def\semburst{SEM$_{\mathrm{burst}}$}
+\def\mpburst{$\overline{P}_{\mathrm{burst}}$}
+\def\eleak{E$_{\mathrm{leak}}$}
+\def\ena{E$_{\mathrm{Na}}$}
+\def\ek{E$_{\mathrm{K}}$}
+\def\Ek{E$_{\mathrm{K}}$}
+\def\esyn{E$_{\mathrm{syn}}$}
+\def\eca{E$_{\mathrm{Ca}}$}
+\def\Egabaa{E$_{\mathrm{GABA A}}$}
+\def\Vhalf{V$_{\mathrm{\frac{1}{2}}}$}
+\def\VhT{\Vhalf$_{\mathrm{T-channel}}$}
+\def\vmemb{V$_\mathrm{memb}$}
+\def\rin{R$_{in}$}
+% \def\rm{R$_m$}
+\def\cm{C$_m$}
+
+% Hodgkin-Huxley-isms
+\def\minf{$m_\infty$}
+\def\minfv{$m_\infty(V)$}
+\def\hinf{$h_\infty$}
+\def\ninf{$n_\infty$}
+\def\taum{$\tau_m$}
+\def\tauh{$\tau_h$}
+\def\taun{$\tau_n$}
+
+% names of things
+\def\ANN{artificial neural network}
+\def\BG{basal ganglia}
+\def\hh{Hodgkin-Huxley}
+\def\HH{Hodgkin-Huxley}
+\def\ach{acetylcholine}
+\def\lgn{lateral geniculate nucleus}
+\def\Ahp{after hyperpolarizing currents}
+\def\lts{low-threshold spike}
+\def\tc{thalamocortical}
+\def\re{reticularis}
+\def\tcn{TC neuron}
+\def\ren{RE neuron}
+\def\tcns{TC neurons}
+\def\rens{RE neurons}
+\def\intf{I\&F cells}
+\def\nrt{nucleus reticularis thalami}
+\def\trn{thalamic reticular nucleus}
+\def\bzd{benzodiazepine}
+\def\Inviv{{\em In vivo}}
+\def\Invit{{\em In vitro}}
+\def\inviv{{\em in vivo}}
+\def\invit{{\em in vitro}}
+\def\Insil{{\em In silico}}
+\def\insil{{\em in silico}}
+\def\ttx{tetrodotoxin}
+\def\htcc{high-threshold calcium channel}
+\def\ltcc{low-threshold calcium channel}
+\def\kca{\ca-sensitive \k\ channel}
+\def\RNN{realistic neural network}
+
+\def\sbc{subiculum}
+\def\ecx{entorhinal cortex}
+\def\pp{perforant path}
+\def\ib{intrinsic bursting}
+\def\regf{regular firing}
+\def\iyd{in your dreams}
+
+% hippocampus
+\def\hipp{hippocampus}
+\def\DG{dentate gyrus}
+\def\EC{entorhinal cortex}
+\def\HF{hippocampal formation}
+
+% thalamus
+\def\TIs{thalamic interneurons}
+\def\TI{thalamic interneuron}
+\def\SU{single unit}
+\def\PYR{cortical pyramidal cell}
+\def\TC{thalamocortical cell}
+\def\RE{reticularis cell}
+\def\TCs{thalamocortical cells}
+\def\REs{reticularis cells}
+\def\ISI{interspike interval}
+\def\IBI{interburst interval}
+\def\IAB{integrate-and-burst model}
+\def\IAF{integrate-and-fire model}
+\def\wagrij{WAG/r$_{ij}$}
+
+% math stuff
+\def\dvdt{\ensuremath\frac{\mathrm{d}V}{\mathrm{d}t}}
+\def\dlvdlt{\ensuremath\frac{\Delta V}{\Delta t}}
+\def\dxdt{\ensuremath\frac{\mathrm{d}x}{\mathrm{d}t}}
+\def\dxxdtt{\ensuremath{\frac{\mathrm{d}^2\!x}{\mathrm{d}t^2}}} % dxdt2 doesn't work
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
